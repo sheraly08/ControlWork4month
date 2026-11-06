@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}{{ task.title }}{% endblock %}
+
+{% block content %}
+    <p><a href="{% url 'tasks_list' %}">← Назад к списку</a></p>
+
+    <div class="card">
+        <h1>{{ task.title }}</h1>
+        <p><a href="{% url 'task_edit' task.id %}">Редактировать</a></p>
+
+        {% if task.status %}
+            <span class="status status-done">Выполнена</span>
+        {% else %}
+            <span class="status status-open">Не выполнена</span>
+        {% endif %}
+
+        <p class="meta">Создана: {{ task.created_at|date:"d.m.Y H:i" }}</p>
+
+        {% if task.description %}
+            {{ task.description|linebreaks }}
+        {% else %}
+            <p class="meta">Описания нет.</p>
+        {% endif %}
+    </div>
+{% endblock %}

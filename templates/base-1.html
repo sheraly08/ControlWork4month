@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Задачи{% endblock %}</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #f5f6f8;
+            color: #222;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.5;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 1px solid #e2e4e8;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+
+        .logo {
+            color: #222;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .card {
+            margin-bottom: 12px;
+            padding: 16px;
+            background: #fff;
+            border: 1px solid #e2e4e8;
+            border-radius: 8px;
+        }
+
+        .card h2 {
+            margin: 0 0 4px;
+            font-size: 18px;
+        }
+
+        .meta {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 999px;
+            font-size: 13px;
+        }
+
+        .status-done {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .status-open {
+            background: #fef3c7;
+            color: #92400e;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a class="logo" href="{% url 'tasks_list' %}">Задачи</a>
+        </div>
+    </header>
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>
